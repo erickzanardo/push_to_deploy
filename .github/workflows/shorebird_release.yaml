@@ -1,7 +1,8 @@
 name: Shorebird Release 🤖
 
 on:
-  tags:
+  push:
+    tags:
       - v*
 
 jobs:
