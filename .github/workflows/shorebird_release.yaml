@@ -1,0 +1,20 @@
+name: Shorebird Release 🤖
+
+on:
+  tags:
+      - v*
+
+jobs:
+  example:
+    defaults:
+      run:
+        shell: bash
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🐦 Setup Shorebird
+        uses: shorebirdtech/setup-shorebird@v1
+
+      - name: 🚀 Use Shorebird
+        run: shorebird release android
