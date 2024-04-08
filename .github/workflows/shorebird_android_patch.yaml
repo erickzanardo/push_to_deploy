@@ -3,7 +3,7 @@ name: Shorebird Android Release
 on:
   push:
     tags:
-      - releases/*
+      - patches/*
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
@@ -23,7 +23,5 @@ jobs:
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
 
-      - name: 🚀 Shorebird Release
-        uses: shorebirdtech/shorebird-release@v0
-        with:
-          platform: android
+      - name: 🚀 Shorebird Patch
+        run: shorebird patch android
