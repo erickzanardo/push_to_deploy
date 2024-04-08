@@ -1,4 +1,4 @@
-name: Shorebird Release
+name: Shorebird Android Release
 
 on:
   push:
@@ -25,3 +25,4 @@ jobs:
 
       - name: 🚀 Shorebird Release
         uses: shorebirdtech/shorebird-release@v0
+        platform: android
