@@ -1,4 +1,4 @@
-name: Shorebird Android Release
+name: Shorebird Android Patch
 
 on:
   push:
@@ -9,7 +9,7 @@ env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
 
 jobs:
-  release:
+  patch:
     defaults:
       run:
         shell: bash
