@@ -25,4 +25,5 @@ jobs:
 
       - name: 🚀 Shorebird Release
         uses: shorebirdtech/shorebird-release@v0
-        platform: android
+        with:
+          platform: android
