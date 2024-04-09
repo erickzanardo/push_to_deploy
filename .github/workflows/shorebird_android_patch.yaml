@@ -24,6 +24,6 @@ jobs:
         uses: shorebirdtech/setup-shorebird@v1
 
       - name: 🚀 Shorebird Patch
-        uses: shorebirdtech/shorebird-patch@action
+        uses: shorebirdtech/shorebird-patch@feat/action
         with:
           platform: android
