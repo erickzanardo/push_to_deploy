@@ -7,6 +7,8 @@ on:
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
+  COMMIT_COUNT: ${{ github.event.commits.length }}
+  CREATED: ${{ github.event.created }}
 
 jobs:
   release:
@@ -20,17 +22,6 @@ jobs:
       - name: 📚 Git Checkout
         uses: actions/checkout@v3
 
-      - name: 🐦 Setup Shorebird
-        uses: shorebirdtech/setup-shorebird@v1
-
-      - name: 🚀 Shorebird Release
-        if: github.event.commits.length == 0
-        uses: shorebirdtech/shorebird-release@v0
-        with:
-          platform: android
-
-      - name: 🚀 Shorebird Patch
-        if: github.event.commits.length > 0
-        uses: shorebirdtech/shorebird-patch@feat/action
-        with:
-          platform: android
+      - name: Echo created
+        shell: bash
+        run: echo "$CREATED"
