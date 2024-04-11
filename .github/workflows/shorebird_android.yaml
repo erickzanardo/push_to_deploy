@@ -22,6 +22,17 @@ jobs:
       - name: 📚 Git Checkout
         uses: actions/checkout@v3
 
-      - name: Echo created
-        shell: bash
-        run: echo "$CREATED"
+      - name: 🐦 Setup Shorebird
+        uses: shorebirdtech/setup-shorebird@v1
+
+      - name: 🚀 Shorebird Release
+        if: ${{ github.event.created }}
+        uses: shorebirdtech/shorebird-release@v0
+        with:
+          platform: android
+
+      - name: 🚀 Shorebird Patch
+        if: ${{ !github.event.created }}
+        uses: shorebirdtech/shorebird-patch@feat/action
+        with:
+          platform: android
