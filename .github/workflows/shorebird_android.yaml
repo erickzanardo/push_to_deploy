@@ -1,15 +1,15 @@
-name: Shorebird Android Patch
+name: Shorebird Android
 
 on:
   push:
-    tags:
-      - patches/*
+    branches:
+      - releases/*
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
 
 jobs:
-  patch:
+  release:
     defaults:
       run:
         shell: bash
@@ -23,7 +23,14 @@ jobs:
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
 
+      - name: 🚀 Shorebird Release
+        if: github.event.commits.length == 1
+        uses: shorebirdtech/shorebird-release@v0
+        with:
+          platform: android
+
       - name: 🚀 Shorebird Patch
+        if: github.event.commits.length > 1
         uses: shorebirdtech/shorebird-patch@feat/action
         with:
           platform: android
