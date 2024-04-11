@@ -24,13 +24,13 @@ jobs:
         uses: shorebirdtech/setup-shorebird@v1
 
       - name: 🚀 Shorebird Release
-        if: github.event.commits.length == 1
+        if: github.event.commits.length == 0
         uses: shorebirdtech/shorebird-release@v0
         with:
           platform: android
 
       - name: 🚀 Shorebird Patch
-        if: github.event.commits.length > 1
+        if: github.event.commits.length > 0
         uses: shorebirdtech/shorebird-patch@feat/action
         with:
           platform: android
